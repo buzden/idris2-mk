@@ -1,4 +1,10 @@
-# Access the constructor, even it is unnamed
+<!-- idris
+module README
+
+import Language.Mk
+-->
+
+# Access the constructor, even unnamed
 
 A macro for the Idris 2
 
