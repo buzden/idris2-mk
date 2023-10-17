@@ -1,0 +1,8 @@
+[install]
+whitelist = [ "mk-tests" ]
+
+[custom.all.mk]
+type = "local"
+path = "."
+ipkg = "mk.ipkg"
+test = "tests/tests.ipkg"

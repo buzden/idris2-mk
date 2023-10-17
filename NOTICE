@@ -1,0 +1,7 @@
+Mk, a macro for accessing unnamed constructors in Idris 2
+Copyright (c) 2022-23 Denis Buzdalov
+
+Licensed under the Apache License, Version 2.0.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0

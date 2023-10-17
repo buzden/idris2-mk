@@ -1,0 +1,12 @@
+package mk
+
+authors = "Denis Buzdalov"
+license = "Apache-2.0"
+brief = "A macro for accessing constructors of records or implementations, even unnamed"
+
+sourcedir = "src"
+builddir = ".build"
+
+version = 0.1.0
+
+modules = Language.Mk
