@@ -6,5 +6,5 @@ import Test.Golden.RunnerHelper
 
 main : IO ()
 main = goldenRunner
-  [ "Compilability tests of `Mk`" `atDir` "mk-compiles"
+  [ "Usage of the `Mk` macro" `atDir` "mk-macro"
   ]

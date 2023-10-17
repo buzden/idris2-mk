@@ -1,6 +1,6 @@
 module Language.Mk
 
-import Language.Reflection
+import public Language.Reflection
 
 %default total
 
@@ -23,29 +23,3 @@ Mk t = do
     | []      => failAt fc "No constructors found for `\{show name}`"
     | _::_::_ => failAt fc "Given type `\{show name}` has more than one constructor"
   check $ IVar fc conName
-
-failing "Expression must not be a primitive value or type"
-
-  y = Mk String
-
-failing "Expression must be just a name"
-
-  y = Mk (\x => List x)
-
-failing "No constructors found for `Builtin.Void`"
-
-  y = Mk Void
-
-failing "Given type `Prelude.Basics.List` has more than one constructor"
-
-  y = Mk List
-
-aqShowNat : Show Nat
-aqShowNat = Mk Show (\n => show n) (\d, n => showPrec d n)
-
-aqShowNat' = Mk Show (\n : Nat => show n) (\d, n => showPrec d n)
-
-aq : (a -> String) -> (Prec -> a -> String) -> Show a
-aq = Mk Show
-
-aq' = Mk Show (show . S)
