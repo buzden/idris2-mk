@@ -2,4 +2,3 @@ build/
 .build/
 **/tests/**/failures
 **/tests/**/output
-.pack_lock

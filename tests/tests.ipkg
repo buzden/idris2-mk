@@ -3,15 +3,9 @@ package mk-tests
 authors = "Denis Buzdalov"
 version = 0.1.0
 
-modules = BaseDir
-
-main = Runner
+main = Tests
 executable = runtests
 
-sourcedir = "runner"
 builddir = ".build"
-
-prebuild  = "sh runner/buildhook pre"
-postbuild = "sh runner/buildhook post"
 
 depends = golden-runner-helper

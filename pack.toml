@@ -1,6 +1,3 @@
-[install]
-whitelist = [ "mk-tests" ]
-
 [custom.all.mk]
 type = "local"
 path = "."
