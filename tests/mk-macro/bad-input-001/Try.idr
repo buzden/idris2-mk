@@ -2,11 +2,11 @@ import Language.Mk
 
 %default total
 
-failing "Expected a type constructor, got: String"
+failing "Expression must not be a primitive value or type"
 
   y = Mk String
 
-failing "Expected a type constructor, got: \\ x => Prelude.Basics.List x"
+failing "Expression must be just a name"
 
   y = Mk (\x => List x)
 
