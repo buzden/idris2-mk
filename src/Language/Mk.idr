@@ -25,6 +25,7 @@ tyConAndArgs : Elaboration m =>
                m $ List (Name, List $ Argument $ Maybe TTImp)
 tyConAndArgs boundNames usedFreeNames $ ILam fc _ _ Nothing argTy rest = failAt fc "Expected a type constructor, got an unnamed lambda"
 tyConAndArgs boundNames usedFreeNames $ ILam fc cnt pii (Just nm) argTy rest = tyConAndArgs (insert (fc, nm) boundNames) usedFreeNames rest
+tyConAndArgs boundNames usedFreeNames _ = ?tyConAndArgs_rest
 
 getTyCon : Elaboration m => TTImp -> m $ List TyCon
 getTyCon expr = ?foo
