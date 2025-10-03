@@ -31,8 +31,8 @@ isTyCon $ MkNameInfo $ TyCon {} = True
 isTyCon _                       = False
 
 export
-getMk : (t : ty) -> Elab a
-getMk t = do
+getMk' : (t : ty) -> Elab (FC, Name)
+getMk' t = do
   expr <- quote t
   let fc = getFC expr
   let IVar _ name = expr
@@ -44,8 +44,14 @@ getMk t = do
   [conName] <- getCons name
     | []      => failAt fc "No constructors found for `\{show name}`"
     | _::_::_ => failAt fc "Given type `\{show name}` has more than one constructor"
-  check $ IVar fc conName
+  pure (fc, conName)
+
+export
+getMk : (t : ty) -> Elab Name
+getMk = map snd . getMk'
 
 export %macro %inline
 Mk : (t : ty) -> Elab a
-Mk = getMk
+Mk t = do
+  (fc, conName) <- getMk' t
+  check $ IVar fc conName
